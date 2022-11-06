@@ -23,6 +23,14 @@
 - ```gio open <some-path>``` Opens the file browser with the specified path.
 - ```gio open .``` Opens the file browser with the current working directory.
 
+## Installing softwares
+
+- ```sudo apt update && sudo apt upgrade``` Run this command before installing any software so that system is always updated.
+- Follow the guidelines as stated by the docs in order to install the software.
+- ```flatpak install flathub <application-id>``` Inorder to install via flatpak.
+- ```sudo apt install <path/name-of-the-downloaded-software>``` Inorder to install via apt with the path of the install file specified.
+- ```sudo apt install ./<name-of-the-downloaded-software>``` Inorder to install via apt provided the install file is present in the current directory.
+
 ## Command Chaining
 
 - Command after the operator ```&&``` waits till the command before the operator is executed successfully.
@@ -37,3 +45,18 @@
 - ```>>``` is used when writing an output of a command to a file (if file does not exists, then it will be created. if file exists, the content will be appended).
 - ```2>``` is used when writing the standard error of the command into a file and overwrites the content of the file. 2 is a file descriptor referring to ```STDERR```. Other file descriptors are 0 for standard input and 1 for standard output.
 - ```&>``` is used when writing standard output and standard error if a command into a file and overwrites the content of the file.
+
+## Setting up JAVA_HOME and PATH for all users
+
+- Find /usr/lib/jvm/java-11-openjdk-amd64 or whichever version of java you want to set as home.
+- Open terminal and write the command ```sudo nano /etc/profile```.
+- Next, in the nano editor, add these two lines at the end of the file ```export JAVA_HOME="usr/lib/jvm/java-11-openjdk-amd64"``` and ```export PATH=$JAVA_HOME/bin:$PATH```.
+- Save the file.
+- Then either logout and login, or reboot, or use the command ```source /etc/profile``` to apply the changes immediately.
+- What this will do is whenever the system starts, it will run this script and add these 2 into the environment variables.
+- The second command where we export PATH, it adds the previous PATH variable value after the $JAVA_HOME/bin, i.e., PATH=$JAVA_HOME/bin:usr/*******.
+- Another way to do this by adding these values directly into the /etc/environment file like 
+```
+JAVA_HOME="usr/lib/jvm/java-11-openjdk-amd64"
+PATH=$JAVA_HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+```
