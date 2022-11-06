@@ -20,6 +20,8 @@
 - ```rmdir </path/dir-name>``` Deletes an empty directory at the specified path.
 - ```rm -rf </path/dir-name>``` Deletes a non-empty directory at the specified path. ```r``` stands for recursive and ```f``` stands for forced.
 - ```rm -d </path/dir-name>``` Deletes an empty directory at the specified path.
+- ```gio open <some-path>``` Opens the file browser with the specified path.
+- ```gio open .``` Opens the file browser with the current working directory.
 
 ## Command Chaining
 
